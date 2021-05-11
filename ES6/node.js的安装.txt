@@ -1,0 +1,97 @@
+
+命令提示符操作：
+更改为国内径向：cnpm install -g cnpm --registry=https://registry.npm.taobao.org   淘宝径向
+安装命令：cnpm install webpack -g  全局安装
+安装webpack-cli : cnpm install -g webpack-cli
+
+
+建立项目依赖
+   文件位置：最好不要放在桌面
+   文件名不能使用：webpack
+   
+在webpack文件中创建json文件。
+方法1：找到webpack文件按住shift，右键找到PowerShell打开   输入  npm init 或者 cnpm init  回车   文件创建完成
+方法2：使用vs打开，找到终端，文件下边往上拖，输入  npm init 或者 cnpm init    回车   文件创建完成
+
+
+每次使用node.js时都需要建立
+在webpack文件项目中建立webpack
+  输入命令：npm install webpack --save-dev   
+   在webpack文件中创建node_modules文件        //项目的依赖
+在当前目录   //-save-dev
+
+打包
+建立src文件  
+在src文件内部写html/css/js文件
+
+如果打包不了就打开powershell   输入
+Set-ExecutionPolicy RemoteSigned
+写Y
+
+
+让后再打包
+运行打包命令              webpack --mode development      开发模式
+		方便开发，方便代码调试，不需要考虑代码合并和css样式分离这些
+  webpack --mode Production   生产模式
+		
+
+
+1、公共模块拆分、单独打包
+2、css文件分离，单独打包输出
+3、代码压缩
+
+
+
+webpack配置文件
+
+
+
+JS多入口
+const path=require('path');
+module.exports={
+    mode:"development",   //配置打包模式
+    entry:["./src/index.js","./src/index2.js"], //入口配置
+    output:{                //出口配置
+        path:path.resolve(__dirname,'dist'),//path必须是绝对路径
+        filename:'main.js'     //名字可以随便取
+    }
+}    
+
+JS多入口多出口  （多对多的实现）
+const path=require('path');
+module.exports={
+    mode:"development",   //配置打包模式
+    entry:{              //entry入口文件支持json的形式
+	index:'./src/index.js',
+	index2:'./src/index2.js'
+	
+	} ,//入口配置
+    output:{                //出口配置
+        path:path.resolve(__dirname,'dist'),//path必须是绝对路径
+        filename:'main_[name].js'     //名字可以随便取
+    }
+}   
+
+
+安装 webpack-dev-server
+	在全局环境中安装  webpack-dev-server：
+	cnpm install webpack-dev-server -g
+	在项目目录的下执行命令
+	cnpm install webpack-dev-server -D     //只在当前项目安装
+
+	执行命令
+	webpack-dev-sever   //兼容性问题
+
+	webpack serve -open    自动刷新
+
+loader
+
+	安装loder
+	npm install css-loader style-loader --save-dev
+	
+
+
+
+
+
+

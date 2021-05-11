@@ -1,0 +1,24 @@
+wepack项目适配环境
+1.常见一个webpack文件（最好不要文字）
+
+2.在PowerShell输入：npm init  (创建package.json)
+
+3.手动创建src目录，新建入口文件index.js(里面写js或是css文件)
+
+4.打包webpack（main.js文件引入html文件）
+
+5.新建一个webpack.config.js文件(配置打包模式)
+
+6.配置自动打包
+   cnpm install webpack-dev-server -g  全局安装
+   cnpm install webpack-dev-server -D   局部安装
+注意：配置不成功无所谓
+
+7.安装css-loder
+npm install css-loader style-loader --save-dev
+
+8.安装图片loder
+npm install --save-dev url-loader file-loader
+
+9.安装babel-loader
+npm install @babel/preset-env  --save-dev
